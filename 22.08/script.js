@@ -1,4 +1,4 @@
-const enviar = document.getElementById('btnInserir');
+let bd_contacts = []
 
 function inserirContato(){
     const contact = {
@@ -6,11 +6,11 @@ function inserirContato(){
     fone: document.getElementById('textFone').value
     }
 
-    const bd_contacts = getLocalStorage();
+    bd_contacts = getLocalStorage();
+    console.log(bd_contacts);
 
     //tratar erro aq
     bd_contacts.push(contact);
-    console.log(bd_contacts);
     
     //armazena os dados no local storage
     setLocalStorage(bd_contacts);
@@ -20,7 +20,7 @@ function inserirContato(){
 }
 // --------------------------STORAGE-------------------------------
 function getLocalStorage() {
-    return JSON.parse(localStorage.getItem('bd_contacts'));
+    return JSON.parse(localStorage.getItem('bd_contacts')) || [];
 }
 // ----------------------------------------------------------------
 function setLocalStorage(bd_contacts) {
