@@ -1,58 +1,36 @@
-let bd_contacts = []
+const listaTabela = document.getElementById('table');
+const botaoInserir = document.getElementById('btnInserir');
+console.log(botaoInserir);
 
-function inserirContato(){
-    const contact = {
-    name: document.getElementById('textNome').value,
-    fone: document.getElementById('textFone').value
+let listaPessoa = [];
+let idCounter = 1;
+
+function cadastrarPessoa() {
+    const pessoa = {
+        id: idCounter++,
+        nome: document.getElementById('txtNome').value,
+        telefone: document.getElementById('txtFone').value,
     }
-
-    bd_contacts = getLocalStorage();
-    console.log(bd_contacts);
-
-    //tratar erro aq
-    bd_contacts.push(contact);
-    
-    //armazena os dados no local storage
-    setLocalStorage(bd_contacts);
-
-    //atualiza a tabela antes depois da insercao
-    updateTable();
-}
-// --------------------------STORAGE-------------------------------
-function getLocalStorage() {
-    return JSON.parse(localStorage.getItem('bd_contacts')) || [];
-}
-// ----------------------------------------------------------------
-function setLocalStorage(bd_contacts) {
-    localStorage.setItem('bd_contacts', JSON.stringify(bd_contacts));
-}
-// ----------------------------------------------------------------
-
-// ----------------------------------------------------------------
-
-// ----------------------------------------------------------------
-
-// ---------------------------TABLE--------------------------------
-function updateTable() {
-    //clean table
-
-    const bd_contacts = getLocalStorage();
-
-    bd_contacts.forEach(newRow)
+    listaPessoa.push(pessoa)
+    console.log(listaPessoa)
+    // updateList()
 }
 
-// ----------------------------------------------------------------
-function newRow(contact, index) {
-    const line = document.createElement('tr');
-    line.innerHTML = `
-        <td>${index}</td>
-        <td>${contact.name}</td>
-        <td>${contact.fone}</td>
-        <td><button>Delete</button></td>
-    `
+botaoInserir.addEventListener('click', cadastrarPessoa)
 
-    document.querySelector('#tbContacts>tbody').appendChild(line)
-    }
+// function updateList() {
+//     listaTabela.innerHTML = `
+//     <thead>
+//         <th scope="col">ID</th>
+//         <th scope="col">Nome</th>
+//         <th scope="col">Telefone</th>
+//         <th scope="col">Ação</th>
+//     </thead>
+//     <tbody>
+        
+//         ${
 
-
-// ----------------------------------------------------------------
+//         }
+//     </tbody>
+//     `
+// }

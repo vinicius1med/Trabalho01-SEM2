@@ -12,23 +12,23 @@
     <form action="">
     <div class="container">
         <div class="form-row">
-            <label for="txtNome">Nome</label>
+            <label for="textNome">Nome</label>
             <input type="text" name="nome" id="textNome" placeholder="Digite seu nome">
             <div class="invalid-feddback">Informe o nome corretamente</div>
         </div>
         <div class="form-row">
-            <label for="txtNome">Telefone</label>
+            <label for="textFone">Telefone</label>
             <input type="text" name="fone" id="textFone" placeholder="(99) 9 9999-9999">
             <div class="invalid-feddback">Informe o telefone corretamente</div>
         </div>
 
-        <input type="submit" value="Inserir" id="btnInserir" onclick="inserirContato()">
+        <button id="btnInserir">Inserir</button>   
     </div>
     </form>
-    <div class="table" id="tableContact">
+    <div class="table" id="tableContact" onclick="cadastrarPessoa()">
         <table id="tbContacts">
             <thead>
-                <th scope="col">#</th>
+                <th scope="col">ID</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Telefone</th>
                 <th scope="col">Ação</th>
