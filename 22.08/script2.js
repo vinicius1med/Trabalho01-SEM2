@@ -1,5 +1,5 @@
 let bd_contacts = []
-let idCounter = 1
+// let idCounter = 1
 
 function inserirContato(){
     const contact = {
@@ -20,7 +20,7 @@ function inserirContato(){
 }
 // --------------------------STORAGE-------------------------------
 function getLocalStorage() {
-    return JSON.parse(localStorage.getItem('bd_contacts'));
+    return JSON.parse(localStorage.getItem('bd_contacts')) || [];
 }
 // ----------------------------------------------------------------
 function setLocalStorage(bd_contacts) {
@@ -28,10 +28,8 @@ function setLocalStorage(bd_contacts) {
 }
 // ---------------------------TABLE--------------------------------
 function updateTable() {
-    //clean table
-
+    cleanTable();
     const bd_contacts = getLocalStorage();
-
     bd_contacts.forEach(newRow)
 }
 
@@ -42,11 +40,18 @@ function newRow(contact, index) {
         <td>${index}</td>
         <td>${contact.name}</td>
         <td>${contact.fone}</td>
-        <td><button>Delete</button></td>
+        <td><button>Excluir</button></td>
     `
 
     document.querySelector('#tbContacts>tbody').appendChild(line)
     }
-
-
 // ----------------------------------------------------------------
+function cleanTable() {
+    const tbody = document.querySelector('#tbContacts>tbody')
+    while (tbody.firstChild) {
+        tbody.removeChild(tbody.firstChild)
+    }
+}
+// ----------------------------------------------------------------
+updateTable();
+

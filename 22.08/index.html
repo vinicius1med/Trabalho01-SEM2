@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto 01 - Contato</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script3.js"></script>
 </head>
 <body>
     <h1>Contatos</h1>
@@ -22,10 +22,10 @@
             <div class="invalid-feddback">Informe o telefone corretamente</div>
         </div>
 
-        <button id="btnInserir">Inserir</button>   
+        <button id="btnInserir" onclick="inserirContato()">Inserir</button>   
     </div>
     </form>
-    <div class="table" id="tableContact" onclick="cadastrarPessoa()">
+    <div class="table" id="tableContact">
         <table id="tbContacts">
             <thead>
                 <th scope="col">ID</th>
@@ -35,13 +35,12 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
+                    <td>ID</td>
                     <td>Joaozinho</td>
                     <td>9999</td>
                     <td><button>Excluir</button></td>
                 </tr>
             </tbody>
-
         </table>
 
     </div>
